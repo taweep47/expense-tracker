@@ -1,0 +1,50 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "mean",
+      "email": "test@test.com",
+      "password": "1234"
+    },
+    {
+      "name": "test",
+      "email": "loop@email.com",
+      "password": "123456",
+      "id": 2
+    }
+  ],
+  "expenses": [
+    {
+      "title": "ned",
+      "amount": 200,
+      "category": "food",
+      "date": "2026-02-03",
+      "userId": 2,
+      "id": 1
+    },
+    {
+      "title": "Texi",
+      "amount": 150,
+      "category": "transport",
+      "date": "2026-01-13",
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "title": "Keybord",
+      "amount": 1299,
+      "category": "shopping",
+      "date": "2026-02-06",
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "title": "Rov",
+      "amount": 35,
+      "category": "entertainment",
+      "date": "2026-01-12",
+      "userId": 1,
+      "id": 4
+    }
+  ]
+}
