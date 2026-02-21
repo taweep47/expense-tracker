@@ -1,16 +1,130 @@
-# React + Vite
+# 💰 Expense Tracker App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A multi-user Expense Tracker built with **React + Tailwind CSS + JSON Server**.  
+This project demonstrates CRUD operations, authentication, soft delete logic, and analytics dashboard features.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+### 🔐 Authentication
+- User registration & login
+- Multi-user support
+- User-based expense filtering
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 💵 Expense Management (CRUD)
+- Create expense
+- Edit expense
+- Soft delete (using `deletedAt`)
+- Optimistic UI updates
+- Timestamp support (`createdAt`, `updatedAt`)
 
-## Expanding the ESLint configuration
+### 📊 Dashboard Analytics
+- Total expenses
+- Current month expenses
+- Category count
+- Charts visualization
+- Monthly comparison logic
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🧠 Advanced Logic
+- Soft delete with frontend filtering
+- Multi-user data isolation
+- Clean custom hook (`useExpenses`)
+- Timestamp-based tracking
+
+---
+
+## 🛠 Tech Stack
+
+- **Frontend**: React
+- **Styling**: Tailwind CSS
+- **Icons**: lucide-react
+- **HTTP Client**: Axios
+- **Backend (Mock API)**: json-server
+- **Version Control**: Git + GitHub
+
+---
+
+## 📂 Project Structure
+
+
+src/
+│
+├── auth/
+├── hooks/
+│ └── useExpenses.js
+├── features/
+│ └── expenses/
+├── components/
+│ └── ui/
+└── pages/
+
+
+---
+
+## 🧪 Local Setup
+
+### 1️⃣ Clone repository
+
+
+git clone https://github.com/taweep47/expense-tracker.git
+
+cd expense-tracker
+
+
+### 2️⃣ Install dependencies
+
+
+npm install
+
+
+### 3️⃣ Run json-server
+
+
+npx json-server --watch db.json --port 3001
+
+
+### 4️⃣ Run frontend
+
+
+npm run dev
+
+
+---
+
+## 📌 Soft Delete Implementation
+
+Instead of permanently deleting data, expenses are marked with:
+
+
+deletedAt: timestamp
+
+
+Frontend filters out deleted items to simulate production-level data lifecycle management.
+
+---
+
+## 📈 Future Improvements
+
+- Undo delete feature
+- Trash page
+- Sorting & pagination
+- Backend migration (Node + Express + Database)
+- JWT authentication
+
+---
+
+## 👨‍💻 Author
+
+Developed by **Nam_ WaNZZ**
+
+---
+
+## ⭐ Why This Project?
+
+This project was built to demonstrate:
+- Clean architecture
+- Custom hooks
+- Multi-user logic
+- Real-world CRUD patterns
+- Production-like soft delete handling
