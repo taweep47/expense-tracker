@@ -15,36 +15,26 @@
   ],
   "expenses": [
     {
-      "title": "ned",
-      "amount": 200,
-      "category": "food",
-      "date": "2026-02-03",
+      "title": "test",
+      "amount": 555,
+      "category": "transport",
+      "date": "2026-02-17",
       "userId": 2,
+      "createdAt": "2026-02-21T18:13:48.757Z",
+      "updatedAt": "2026-02-21T18:13:48.757Z",
+      "deletedAt": null,
       "id": 1
     },
     {
-      "title": "Texi",
-      "amount": 150,
+      "title": "รถไฟ",
+      "amount": 196,
       "category": "transport",
-      "date": "2026-01-13",
-      "userId": 1,
+      "date": "2026-01-27",
+      "userId": 2,
+      "createdAt": "2026-02-21T18:27:58.217Z",
+      "updatedAt": "2026-02-21T18:28:59.369Z",
+      "deletedAt": "2026-02-21T18:28:59.369Z",
       "id": 2
-    },
-    {
-      "title": "Keybord",
-      "amount": 1299,
-      "category": "shopping",
-      "date": "2026-02-06",
-      "userId": 1,
-      "id": 3
-    },
-    {
-      "title": "Rov",
-      "amount": 35,
-      "category": "entertainment",
-      "date": "2026-01-12",
-      "userId": 1,
-      "id": 4
     }
   ]
 }

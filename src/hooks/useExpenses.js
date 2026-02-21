@@ -8,7 +8,6 @@ const useExpenses = () => {
   const [expenses, setExpenses] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // โหลด expenses ตาม user
   useEffect(() => {
     if (!user) {
       setExpenses([]);
@@ -21,16 +20,26 @@ const useExpenses = () => {
     axios
       .get(`${API_URL}/expenses?userId=${user.id}`)
       .then((res) => {
-        setExpenses(res.data);
+        // filter soft delete ที่ frontend
+        const activeExpenses = res.data.filter(
+          (e) => !e.deletedAt
+        );
+
+        setExpenses(activeExpenses);
       })
       .finally(() => setLoading(false));
   }, [user]);
 
   // CREATE
   const createExpense = async (data) => {
+    const now = new Date().toISOString();
+
     const res = await axios.post(`${API_URL}/expenses`, {
       ...data,
-      userId: user.id
+      userId: user.id,
+      createdAt: now,
+      updatedAt: now,
+      deletedAt: null
     });
 
     setExpenses((prev) => [...prev, res.data]);
@@ -38,18 +47,31 @@ const useExpenses = () => {
 
   // EDIT
   const editExpense = async (id, data) => {
-    const res = await axios.patch(`${API_URL}/expenses/${id}`, data);
+    const now = new Date().toISOString();
+
+    const res = await axios.patch(`${API_URL}/expenses/${id}`, {
+      ...data,
+      updatedAt: now
+    });
 
     setExpenses((prev) =>
       prev.map((e) => (e.id === id ? res.data : e))
     );
   };
 
-  // DELETE
+  // 🔥 SOFT DELETE
   const removeExpense = async (id) => {
-    await axios.delete(`${API_URL}/expenses/${id}`);
+    const now = new Date().toISOString();
 
-    setExpenses((prev) => prev.filter((e) => e.id !== id));
+    await axios.patch(`${API_URL}/expenses/${id}`, {
+      deletedAt: now,
+      updatedAt: now
+    });
+
+    // ลบออกจาก UI ทันที (optimistic update)
+    setExpenses((prev) =>
+      prev.filter((e) => e.id !== id)
+    );
   };
 
   return {
